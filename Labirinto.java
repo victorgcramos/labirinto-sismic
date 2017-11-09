@@ -23,12 +23,15 @@ public class Labirinto {
    * @param  {int} next_y coordenada y futura
    */
   public int percorrer (int x, int next_x, int y, int next_y){
+
     try{
+      // Caso chegue ao final:
       if (this.labirinto[next_x][next_y] == 3) {
         this.labirinto[x][y] = 1;
         this.labirinto[next_x][next_y] = 4;
         return 2;
       }
+      // Caso a casa que ele deseja ir esteja livre:
       else if (this.labirinto[next_x][next_y] == 1) {
         this.labirinto[x][y] = 1;
         this.labirinto[next_x][next_y] = 2;
@@ -42,6 +45,17 @@ public class Labirinto {
     }
     return 1;
   }
+
+
+  /**
+   * public void printLabirinto - prrinta todo o labirinto, substituindo:
+   * 0 -> I (parede)
+   * 1 -> _  (espaco livre)
+   * 2 -> * (elemento)
+   * 3 -> 0 (fim)
+   * 4 -> (*) (venceu)
+   *
+   */
   public void printLabirinto () {
     for (int i = 0; i< this.labirinto.length ; i++ ) {
       for (int j = 0; j<this.labirinto[i].length ; j++ ) {
